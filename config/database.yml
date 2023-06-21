@@ -1,0 +1,21 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: kzldlgr
+  password: postgres
+
+development:
+  <<: *default
+  database: e_Rescue_Api
+
+test:
+  <<: *default
+  database: e_Rescue_Api_test
+
+production:
+  <<: *default
+  database: e_Rescue_Api_production
+  username: e_Rescue_Api
+  password: <%= ENV["E_RESCUE_API_DATABASE_PASSWORD"] %>
